@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="CROISSENS — La coalition économique à impact, Made in DNVB. Programme de fidélité multi-marques pour réduire structurellement la dépendance au paid media.">
+  <meta property="og:title" content="CROISSENS — La coalition économique à impact">
+  <meta property="og:description" content="De l'acquisition paid individualisée à la fidélisation mutualisée. Pour une rentabilité structurelle.">
+  <meta property="og:type" content="website">
+  <title>CROISSENS — La coalition économique à impact</title>
+  <link rel="icon" type="image/png" href="logo.png">
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Barlow',sans-serif}
+    .lp{background:#fff;color:#0D1B4B;min-height:100vh}
+
+    /* TOPBAR */
+    .topbar{background:#fff;border-bottom:1px solid rgba(13,27,75,0.12);display:flex;align-items:center;justify-content:space-between;padding:0.85rem 2rem}
+    .topbar-logo{height:36px;width:auto;display:block}
+    .topbar-right{display:flex;align-items:center;gap:0.6rem}
+    .topbar-badge{font-size:0.72rem;font-weight:500;color:rgba(13,27,75,0.45);letter-spacing:0.1em;text-transform:uppercase}
+    .topbar-sep{width:1px;height:16px;background:rgba(13,27,75,0.15)}
+    .topbar-stationf{font-size:0.72rem;font-weight:600;color:#0D1B4B;letter-spacing:0.08em;text-transform:uppercase}
+
+    /* HERO */
+    .hero{background:#0D1B4B;padding:3.5rem 2rem 3rem;text-align:center}
+    .hero-eyebrow{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.5);margin-bottom:1rem;font-weight:500}
+    .hero-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(2.2rem,5vw,3.4rem);font-weight:800;line-height:1.05;color:#fff;text-transform:uppercase;margin-bottom:1rem;letter-spacing:0.02em}
+    .hero-title em{color:#C0392B;font-style:normal}
+    .hero-sub{font-size:1rem;line-height:1.65;color:rgba(255,255,255,0.65);max-width:520px;margin:0 auto 2.5rem;font-weight:300}
+    .hero-cta{display:inline-block;background:#C0392B;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;padding:0.85rem 2.2rem;text-decoration:none;transition:background 0.2s}
+    .hero-cta:hover{background:#9e2d21}
+
+    /* STATS */
+    .stats{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid #0D1B4B}
+    .stat{padding:1.5rem 1rem;text-align:center;border-right:1px solid rgba(13,27,75,0.15)}
+    .stat:last-child{border-right:none}
+    .stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;color:#C0392B;display:block;margin-bottom:0.3rem;letter-spacing:0.01em}
+    .stat-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.07em;color:rgba(13,27,75,0.5);line-height:1.4;font-weight:500}
+
+    /* SECTIONS */
+    .section{padding:3rem 2rem;max-width:860px;margin:0 auto}
+    .section-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.12em;color:#C0392B;margin-bottom:0.75rem;font-weight:600}
+    .section-title{font-family:'Barlow Condensed',sans-serif;font-size:1.7rem;font-weight:800;color:#0D1B4B;margin-bottom:1.75rem;line-height:1.1;text-transform:uppercase;letter-spacing:0.02em}
+    .divider{height:1px;background:rgba(13,27,75,0.1);margin:0 2rem}
+
+    /* PROBLEM */
+    .problem-grid{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:rgba(13,27,75,0.1)}
+    .problem-item{background:#fff;padding:1.5rem;border-left:3px solid #C0392B}
+    .problem-num{font-family:'Barlow Condensed',sans-serif;font-size:2rem;font-weight:800;color:rgba(13,27,75,0.08);display:block;margin-bottom:0.4rem;line-height:1}
+    .problem-text strong{display:block;font-size:0.9rem;font-weight:600;color:#0D1B4B;margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.03em}
+    .problem-text span{font-size:0.82rem;color:rgba(13,27,75,0.6);line-height:1.55}
+
+    /* SOLUTION */
+    .solution-box{background:#0D1B4B;padding:2rem}
+    .solution-headline{font-size:0.9rem;color:rgba(255,255,255,0.7);margin-bottom:1.5rem;line-height:1.6;font-weight:300}
+    .solution-headline strong{color:#fff;font-weight:600}
+    .flow{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:1.75rem}
+    .flow-node{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);padding:0.45rem 0.9rem;font-size:0.75rem;color:#fff;white-space:nowrap;font-weight:400;letter-spacing:0.02em}
+    .flow-node.accent{background:rgba(192,57,43,0.3);border-color:rgba(192,57,43,0.6)}
+    .flow-arrow{color:rgba(255,255,255,0.3);font-size:0.8rem}
+
+    /* OFFER */
+    .offer-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.1);margin-bottom:1.5rem}
+    .offer-item{background:#0D1B4B;padding:1.25rem;text-align:center;border-top:2px solid #C0392B}
+    .offer-num{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;color:#C0392B;display:block;margin-bottom:0.2rem}
+    .offer-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.5);line-height:1.5}
+
+    /* RETRO */
+    .retro-box{background:#C0392B;padding:1.5rem}
+    .retro-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:#fff;margin-bottom:0.6rem}
+    .retro-text{font-size:0.85rem;color:rgba(255,255,255,0.85);line-height:1.6;font-weight:300}
+    .retro-text strong{color:#fff;font-weight:600}
+
+    /* KPI */
+    .kpi-row{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(13,27,75,0.1)}
+    .kpi{background:#0D1B4B;padding:1.5rem;text-align:center}
+    .kpi-val{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:800;color:#fff;display:block;letter-spacing:0.02em}
+    .kpi-lbl{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.45);margin-top:0.3rem;line-height:1.4}
+    .kpi-sub{font-size:0.75rem;color:#C0392B;font-weight:500;margin-top:0.2rem}
+
+    /* TIMELINE */
+    .timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border:1px solid rgba(13,27,75,0.15);margin-bottom:1.5rem}
+    .tl-item{padding:1.25rem 1rem;border-right:1px solid rgba(13,27,75,0.15)}
+    .tl-item:last-child{border-right:none;background:#0D1B4B}
+    .tl-item:last-child .tl-phase,.tl-item:last-child .tl-desc{color:rgba(255,255,255,0.5)}
+    .tl-item:last-child .tl-title{color:#fff}
+    .tl-phase{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.1em;color:#C0392B;margin-bottom:0.4rem;font-weight:600}
+    .tl-title{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;color:#0D1B4B;margin-bottom:0.35rem;text-transform:uppercase;letter-spacing:0.03em}
+    .tl-desc{font-size:0.75rem;color:rgba(13,27,75,0.5);line-height:1.4}
+
+    /* NOCURE */
+    .nocure{background:rgba(13,27,75,0.04);border-left:3px solid #0D1B4B;padding:1.25rem 1.5rem;display:flex;gap:2rem;align-items:flex-start}
+    .nocure-label{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:#0D1B4B;white-space:nowrap;padding-top:0.1rem}
+    .nocure-text{font-size:0.82rem;color:rgba(13,27,75,0.65);line-height:1.6}
+    .nocure-text strong{color:#0D1B4B}
+
+    /* CTA */
+    .cta-section{background:#0D1B4B;padding:3.5rem 2rem;text-align:center}
+    .cta-title{font-family:'Barlow Condensed',sans-serif;font-size:2.2rem;font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.03em;margin-bottom:0.75rem;line-height:1.1}
+    .cta-sub{font-size:0.9rem;color:rgba(255,255,255,0.55);margin-bottom:0.4rem;line-height:1.6;max-width:460px;margin-left:auto;margin-right:auto;font-weight:300}
+    .cta-ask{font-size:0.8rem;color:rgba(255,255,255,0.35);margin-bottom:1.75rem;font-weight:300}
+    .cta-btn{display:inline-block;background:#C0392B;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 2.5rem;text-decoration:none;transition:background 0.2s}
+    .cta-btn:hover{background:#9e2d21}
+    .cta-secondary{font-size:0.78rem;color:rgba(255,255,255,0.3);display:block;margin-top:1.2rem}
+
+    /* FOOTER */
+    .footer{background:#0D1B4B;border-top:1px solid rgba(255,255,255,0.08);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
+    .footer-txt{font-size:0.7rem;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.07em}
+
+    /* RESPONSIVE */
+    @media(max-width:600px){
+      .stats{grid-template-columns:repeat(2,1fr)}
+      .stat{border-bottom:0.5px solid rgba(13,27,75,0.1)}
+      .problem-grid{grid-template-columns:1fr}
+      .offer-grid{grid-template-columns:1fr}
+      .timeline{grid-template-columns:1fr 1fr}
+      .kpi-row{grid-template-columns:1fr}
+      .nocure{flex-direction:column;gap:0.5rem}
+      .footer{flex-direction:column;gap:0.5rem;text-align:center}
+    }
+  </style>
+</head>
+<body>
+<div class="lp">
+
+  <!-- TOPBAR -->
+  <div class="topbar">
+    <img src="/logo.png" alt="CROISSENS" class="topbar-logo">
+    <div class="topbar-right">
+      <span class="topbar-stationf">Station F</span>
+      <div class="topbar-sep"></div>
+      <span class="topbar-badge">2026</span>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <div class="hero-eyebrow">La coalition économique à impact — Made in DNVB</div>
+    <h1 class="hero-title">
+      Votre acquisition dépend d'un levier<br>
+      que vous <em>ne contrôlez pas.</em><br>
+      Il existe une alternative.
+    </h1>
+    <p class="hero-sub">CROISSENS transforme votre reach organique en base clients commune et votre communauté en actif financier — sans investir un euro en publicité.</p>
+    <a href="mailto:antoine.ballif@gmail.com?subject=CROISSENS%20—%20je%20veux%20rejoindre%20la%20coalition" class="hero-cta">Rejoindre la coalition →</a>
+  </div>
+
+  <!-- STATS -->
+  <div class="stats">
+    <div class="stat">
+      <span class="stat-num">77%</span>
+      <span class="stat-label">des DNVB dépendantes<br>du paid media</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">+25%</span>
+      <span class="stat-label">hausse du CAC<br>en 1 an</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">30%</span>
+      <span class="stat-label">du CA investi en<br>marketing digital</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">196 Md€</span>
+      <span class="stat-label">marché e-commerce<br>France 2025</span>
+    </div>
+  </div>
+
+  <!-- PROBLÈME -->
+  <div class="section">
+    <div class="section-label">Le problème</div>
+    <div class="section-title">La croissance incrémentale se traduit<br>par une pression accrue sur la marge.</div>
+    <div class="problem-grid">
+      <div class="problem-item">
+        <span class="problem-num">01</span>
+        <div class="problem-text">
+          <strong>Dépendance algorithmique</strong>
+          <span>Votre visibilité est dictée par des plateformes tierces dont les règles changent sans vous prévenir.</span>
+        </div>
+      </div>
+      <div class="problem-item">
+        <span class="problem-num">02</span>
+        <div class="problem-text">
+          <strong>Inflation structurelle</strong>
+          <span>L'augmentation des investissements publicitaires accroît mécaniquement les coûts. Le CAC a doublé en 4 ans.</span>
+        </div>
+      </div>
+      <div class="problem-item">
+        <span class="problem-num">03</span>
+        <div class="problem-text">
+          <strong>Rendement décroissant</strong>
+          <span>Maintenir le même niveau de croissance exige un investissement toujours plus élevé.</span>
+        </div>
+      </div>
+      <div class="problem-item">
+        <span class="problem-num">04</span>
+        <div class="problem-text">
+          <strong>Communauté sous-exploitée</strong>
+          <span>Votre reach organique génère de la notoriété — mais pas de revenus directs. CROISSENS change ça.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- SOLUTION -->
+  <div class="section">
+    <div class="section-label">La solution</div>
+    <div class="section-title">De l'acquisition paid individualisée<br>à la fidélisation mutualisée.</div>
+
+    <div class="solution-box">
+      <p class="solution-headline">Votre <strong>reach organique cumulé de 25 millions d'abonnés</strong> devient le moteur d'une base clients commune — créée ex nihilo, conforme RGPD, sans investir un euro en publicité.</p>
+
+      <div class="flow">
+        <div class="flow-node">Post simultané<br>toutes marques</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Landing page<br>coalition</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Opt-in wallet<br>1 clic</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node">Base clients<br>commune</div>
+        <span class="flow-arrow">→</span>
+        <div class="flow-node accent">Réachat<br>cross-buy</div>
+      </div>
+
+      <div class="offer-grid">
+        <div class="offer-item">
+          <span class="offer-num">9%</span>
+          <span class="offer-label">Remise permanente<br>sur toutes les marques</span>
+        </div>
+        <div class="offer-item">
+          <span class="offer-num">1%</span>
+          <span class="offer-label">Reversé à une ONG<br>au choix du client</span>
+        </div>
+        <div class="offer-item">
+          <span class="offer-num">84%</span>
+          <span class="offer-label">des 18-49 ans jugent<br>le wallet mobile utile</span>
+        </div>
+      </div>
+
+      <div class="retro-box">
+        <div class="retro-title">Votre communauté devient un actif financier</div>
+        <p class="retro-text">
+          <strong>Marque A</strong> embase le client X → X achète chez <strong>Marque B</strong> → B reverse à A <strong>1% du premier achat de X.</strong>
+          Pour la première fois, votre reach organique génère un revenu direct — pas seulement de la notoriété.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- KPIs -->
+  <div class="section">
+    <div class="section-label">Projections financières — pilote 6 mois</div>
+    <div class="kpi-row">
+      <div class="kpi">
+        <span class="kpi-val">3,98×</span>
+        <div class="kpi-lbl">ROI net estimé</div>
+        <div class="kpi-sub">sur 6 mois</div>
+      </div>
+      <div class="kpi">
+        <span class="kpi-val">15,7€</span>
+        <div class="kpi-lbl">CMR coalition</div>
+        <div class="kpi-sub">vs CAC paid moyen ~40€</div>
+      </div>
+      <div class="kpi">
+        <span class="kpi-val">M+6</span>
+        <div class="kpi-lbl">Go / No-Go</div>
+        <div class="kpi-sub">sur données réelles</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- TIMELINE -->
+  <div class="section">
+    <div class="section-label">Lancement du pilote en 30 jours</div>
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-phase">J0 → J7</div>
+        <div class="tl-title">Alignement</div>
+        <div class="tl-desc">Règles communes, rôles, KPIs définis ensemble</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">J7 → J21</div>
+        <div class="tl-title">Build</div>
+        <div class="tl-desc">Wallet + tracking + dashboard partagé</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">J21 → J30</div>
+        <div class="tl-title">Launch</div>
+        <div class="tl-desc">Activation organique coordonnée toutes marques</div>
+      </div>
+      <div class="tl-item">
+        <div class="tl-phase">M+6</div>
+        <div class="tl-title">Go / No-Go</div>
+        <div class="tl-desc">CMR ≤ CAC + marge nette incrémentale positive</div>
+      </div>
+    </div>
+
+    <div class="nocure">
+      <div class="nocure-label">No cure,<br>no pay</div>
+      <div class="nocure-text">
+        Pendant le pilote, vous ne payez que les coûts techniques et la générosité client.
+        <strong>La commission CROISSENS (1%) n'est activée qu'après validation des KPIs à M+6.</strong>
+        Aucun verrou technologique. Sortie possible à tout moment.
+      </div>
+    </div>
+  </div>
+
+  <!-- CTA -->
+  <div class="cta-section">
+    <h2 class="cta-title">Ensemble, donnons davantage<br>de sens à votre croissance.</h2>
+    <p class="cta-sub">Je recherche les marques fondatrices pour co-construire le pilote. Les premières marques co-définissent les règles du jeu.</p>
+    <p class="cta-ask">Ce que je vous demande : 2 contacts nommés · 5 chiffres confidentiels · 30 jours.</p>
+    <a href="mailto:antoine.ballif@gmail.com?subject=CROISSENS%20—%20je%20veux%20rejoindre%20la%20coalition" class="cta-btn">Rejoindre la coalition →</a>
+    <span class="cta-secondary">antoine.ballif@gmail.com · 06 83 84 14 39</span>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-txt">© 2026 CROISSENS · Document confidentiel</div>
+    <div class="footer-txt">Station F</div>
+  </footer>
+
+</div>
+</body>
+</html>
