@@ -1,254 +1,710 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="CROISSENS — La coalition économique à impact, Made in France. Programme de fidélité multi-marques pour réduire structurellement la dépendance au paid media.">
-  <meta property="og:title" content="CROISSENS — La coalition économique à impact">
-  <meta property="og:description" content="De l'acquisition paid individualisée à la fidélisation mutualisée. Pour une rentabilité structurelle.">
-  <title>CROISSENS — La coalition économique à impact</title>
-  <link rel="icon" type="image/png" href="/logo.png">
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;800;900&family=Barlow:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-  <style>
-    *{margin:0;padding:0;box-sizing:border-box}
-    body{font-family:'Barlow',sans-serif;background:#fff;color:#0D1B4B}
- 
-    /* TOPBAR */
-    .topbar{background:#fff;border-bottom:2px solid rgba(13,27,75,0.12);display:flex;align-items:center;justify-content:center;padding:0;height:80px;overflow:hidden}
-    .topbar-logo{height:60px;width:auto;display:block}
- 
-    /* HERO */
-    .hero{background:#0D1B4B;padding:3rem 2rem;text-align:center}
-    .hero-title-white{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.03em;line-height:1.1;margin-bottom:0.5rem}
-    .hero-title-red{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,4vw,2.4rem);font-weight:900;color:#C0392B;text-transform:uppercase;letter-spacing:0.03em;line-height:1.1;margin-bottom:2rem}
-    .hero-sub{font-size:1rem;line-height:1.65;color:rgba(255,255,255,0.75);max-width:560px;margin:0 auto 2.5rem;font-weight:400}
-    .hero-cta{display:inline-block;background:#C0392B;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:0.9rem 2.5rem;text-decoration:none;transition:background 0.2s}
-    .hero-cta:hover{background:#9e2d21}
- 
-    /* STATS */
-    .stats{display:grid;grid-template-columns:repeat(4,1fr);border-top:3px solid #0D1B4B;border-bottom:3px solid #0D1B4B}
-    .stat{padding:1.5rem 1rem;text-align:center;border-right:1px solid rgba(13,27,75,0.15)}
-    .stat:last-child{border-right:none}
-    .stat-num{font-family:'Barlow Condensed',sans-serif;font-size:2.4rem;font-weight:900;color:#C0392B;display:block;margin-bottom:0.3rem}
-    .stat-label{font-size:0.68rem;text-transform:uppercase;letter-spacing:0.07em;color:rgba(13,27,75,0.55);line-height:1.4;font-weight:600}
- 
-    /* SECTIONS */
-    .section{padding:3rem 2rem;max-width:900px;margin:0 auto}
-    .section-label{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#C0392B;margin-bottom:0.5rem}
-    .section-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:800;color:#0D1B4B;text-transform:uppercase;letter-spacing:0.02em;line-height:1.1;margin-bottom:2rem}
-    .divider{height:2px;background:rgba(13,27,75,0.08);margin:0}
- 
-    /* PROBLEM ITEMS */
-    .problem-list{display:flex;flex-direction:column;gap:1.5rem}
-    .problem-item{display:flex;gap:1.5rem;align-items:flex-start;padding-bottom:1.5rem;border-bottom:1px solid rgba(13,27,75,0.08)}
-    .problem-item:last-child{border-bottom:none;padding-bottom:0}
-    .problem-num{font-family:'Barlow Condensed',sans-serif;font-size:3.5rem;font-weight:900;color:rgba(13,27,75,0.08);line-height:1;flex-shrink:0;width:70px}
-    .problem-content strong{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#C0392B;display:block;margin-bottom:0.3rem}
-    .problem-content span{font-size:0.9rem;color:rgba(13,27,75,0.7);line-height:1.6}
- 
-    /* SOLUTION BOX */
-    .solution-box{background:#C0392B;padding:2.5rem;text-align:center;margin-bottom:0}
-    .solution-box-label{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.75);margin-bottom:0.75rem}
-    .solution-box-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.6rem,3.5vw,2.2rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:0.02em;line-height:1.1}
- 
-    /* COMMENT */
-    .comment-box{background:#0D1B4B;padding:2.5rem;text-align:center}
-    .comment-label{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:#C0392B;margin-bottom:0.75rem}
-    .comment-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.4rem,3vw,1.9rem);font-weight:800;color:#fff;text-transform:uppercase;letter-spacing:0.02em;line-height:1.2}
- 
-    /* OFFER */
-    .offer-section{padding:3rem 2rem;max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1.6fr;gap:3rem;align-items:center}
-    .offer-phone img{width:100%;max-width:200px;display:block;margin:0 auto}
-    .offer-title-label{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#C0392B;margin-bottom:0.4rem}
-    .offer-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.4rem,3vw,1.8rem);font-weight:900;color:#0D1B4B;text-transform:uppercase;letter-spacing:0.02em;line-height:1.1;margin-bottom:1.5rem}
-    .offer-list{list-style:none;display:flex;flex-direction:column;gap:0.75rem}
-    .offer-list li{font-size:0.9rem;color:#0D1B4B;line-height:1.5;display:flex;align-items:flex-start;gap:0.5rem}
-    .offer-list li::before{content:"›";color:#C0392B;font-weight:900;font-size:1.1rem;flex-shrink:0;line-height:1.4}
- 
-    /* RETRO */
-    .retro-section{background:rgba(13,27,75,0.04);border-left:4px solid #C0392B;padding:1.5rem 2rem;margin:0 2rem 0}
-    .retro-label{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#C0392B;margin-bottom:0.5rem}
-    .retro-text{font-size:0.9rem;color:#0D1B4B;line-height:1.65}
-    .retro-text strong{color:#C0392B}
- 
-    /* GO TO MARKET */
-    .gtm-section{padding:3rem 2rem;max-width:900px;margin:0 auto}
-    .gtm-label{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#C0392B;margin-bottom:1.5rem}
-    .gtm-grid{display:grid;grid-template-columns:repeat(4,1fr);border:2px solid #0D1B4B;margin-bottom:1.5rem}
-    .gtm-item{padding:1rem;border-right:1px solid rgba(13,27,75,0.2)}
-    .gtm-item:last-child{border-right:none}
-    .gtm-num{font-family:'Barlow Condensed',sans-serif;font-size:1.4rem;font-weight:900;color:#0D1B4B;display:block;margin-bottom:0.4rem}
-    .gtm-title{font-size:0.8rem;font-weight:600;color:#0D1B4B;display:block;margin-bottom:0.3rem;text-transform:uppercase;letter-spacing:0.04em}
-    .gtm-desc{font-size:0.72rem;color:rgba(13,27,75,0.6);line-height:1.4}
- 
-    /* KPI BAR */
-    .kpi-bar{background:#C0392B;padding:1rem 2rem;display:flex;align-items:center;gap:1rem;flex-wrap:wrap;margin:0 2rem 1.5rem}
-    .kpi-bar-label{font-family:'Barlow Condensed',sans-serif;font-size:0.85rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#fff;flex-shrink:0}
-    .kpi-bar-sep{width:2px;height:20px;background:rgba(255,255,255,0.3);flex-shrink:0}
-    .kpi-bar-item{font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:800;color:#fff;white-space:nowrap}
- 
-    /* NOCURE */
-    .nocure-box{border:2px solid #0D1B4B;padding:1.25rem 1.5rem;margin:0 2rem}
-    .nocure-title{font-family:'Barlow Condensed',sans-serif;font-size:0.9rem;font-weight:800;text-transform:uppercase;letter-spacing:0.08em;color:#0D1B4B;margin-bottom:0.4rem}
-    .nocure-text{font-size:0.8rem;color:rgba(13,27,75,0.7);line-height:1.6}
-    .nocure-text strong{color:#0D1B4B}
- 
-    /* CTA SECTION */
-    .cta-section{background:#0D1B4B;padding:4rem 2rem;text-align:center;margin-top:3rem}
-    .cta-title{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:#fff;text-transform:uppercase;letter-spacing:0.03em;line-height:1.1;margin-bottom:1.5rem}
-    .cta-action{font-family:'Barlow Condensed',sans-serif;font-size:clamp(1.4rem,3vw,2rem);font-weight:900;color:#C0392B;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:2rem;display:block}
-    .cta-contact{font-size:0.85rem;color:rgba(255,255,255,0.5);margin-bottom:2rem}
-    .cta-contact a{color:rgba(255,255,255,0.7);text-decoration:underline}
-    .cta-btn{display:inline-block;background:#C0392B;color:#fff;font-family:'Barlow Condensed',sans-serif;font-size:1rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;padding:1rem 3rem;text-decoration:none;transition:background 0.2s}
-    .cta-btn:hover{background:#9e2d21}
- 
-    /* FOOTER */
-    .footer{background:#0D1B4B;border-top:1px solid rgba(255,255,255,0.08);padding:1rem 2rem;display:flex;justify-content:space-between;align-items:center}
-    .footer-txt{font-size:0.7rem;color:rgba(255,255,255,0.25);text-transform:uppercase;letter-spacing:0.07em}
- 
-    /* RESPONSIVE */
-    @media(max-width:640px){
-      .stats{grid-template-columns:repeat(2,1fr)}
-      .offer-section{grid-template-columns:1fr}
-      .offer-phone{display:none}
-      .gtm-grid{grid-template-columns:1fr 1fr}
-      .kpi-bar{flex-direction:column;align-items:flex-start;gap:0.5rem}
-      .kpi-bar-sep{display:none}
-      .retro-section,.nocure-box,.kpi-bar{margin:0 0 1.5rem}
-      .footer{flex-direction:column;gap:0.5rem;text-align:center}
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>#CROISSENS — La coalition économique à impact made in France</title>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy: #0A1B3D;
+    --red: #C8102E;
+    --white: #FAFAF8;
+    --cream: #F4F1EA;
+    --gold: #E8C96A;
+    --navy-light: #1a2e5a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--navy);
+    color: var(--white);
+    overflow-x: hidden;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 24px;
+    position: relative;
+    background: var(--navy);
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 60% at 50% 0%, rgba(200,16,46,0.12) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(10,27,61,0.8) 0%, transparent 60%);
+    pointer-events: none;
+  }
+
+  /* Tricolor bar */
+  .tricolor {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #002395 33.3%, #FAFAF8 33.3% 66.6%, #C8102E 66.6%);
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 11px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 28px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.2s forwards;
+  }
+
+  .hero-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(36px, 6vw, 72px);
+    line-height: 0.9;
+    letter-spacing: -0.03em;
+    color: var(--white);
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.4s forwards;
+  }
+
+  .hero-title span {
+    color: var(--red);
+  }
+
+  .hero-tagline {
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    font-size: clamp(17px, 2.5vw, 22px);
+    color: rgba(250,250,248,0.7);
+    margin-top: 24px;
+    max-width: 560px;
+    line-height: 1.5;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.6s forwards;
+  }
+
+  .hero-cta {
+    margin-top: 48px;
+    opacity: 0;
+    animation: fadeUp 0.8s ease 0.8s forwards;
+  }
+
+  .btn-primary {
+    display: inline-block;
+    background: var(--red);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+  }
+  .btn-primary:hover { background: #a50d25; transform: translateY(-2px); }
+
+  .btn-secondary {
+    display: inline-block;
+    background: transparent;
+    color: rgba(250,250,248,0.6);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.05em;
+    padding: 16px 32px;
+    text-decoration: none;
+    border: 1px solid rgba(250,250,248,0.2);
+    margin-left: 12px;
+    transition: border-color 0.2s, color 0.2s;
+  }
+  .btn-secondary:hover { border-color: rgba(250,250,248,0.6); color: var(--white); }
+
+  /* ── SECTION GÉNÉRIQUE ── */
+  section { padding: 96px 24px; }
+
+  .container { max-width: 960px; margin: 0 auto; }
+
+  .section-label {
+    font-size: 10px;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+    font-weight: 500;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 5vw, 46px);
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── PROBLÈME ── */
+  .problem {
+    background: var(--cream);
+    color: var(--navy);
+  }
+
+  .stats-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2px;
+    margin-top: 56px;
+    background: rgba(10,27,61,0.1);
+  }
+
+  @media (max-width: 700px) {
+    .stats-row { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 400px) {
+    .stats-row { grid-template-columns: 1fr; }
+  }
+
+  .stat-block {
+    background: var(--white);
+    padding: 32px 24px;
+    border-top: 3px solid transparent;
+    transition: border-color 0.3s;
+    overflow: visible;
+    min-width: 0;
+  }
+  .stat-block:hover { border-color: var(--red); }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: clamp(28px, 3.5vw, 48px);
+    color: var(--red);
+    line-height: 1;
+    word-break: break-all;
+  }
+
+  .stat-desc {
+    font-size: 14px;
+    color: rgba(10,27,61,0.7);
+    margin-top: 8px;
+    line-height: 1.4;
+    font-weight: 400;
+  }
+
+  .stat-source {
+    font-size: 11px;
+    color: rgba(10,27,61,0.4);
+    margin-top: 6px;
+    font-style: italic;
+  }
+
+  /* ── SOLUTION ── */
+  .solution {
+    background: var(--navy);
+    position: relative;
+  }
+
+  .solution-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 48px;
+    margin-top: 56px;
+    align-items: start;
+  }
+
+  @media (max-width: 640px) {
+    .solution-grid { grid-template-columns: 1fr; gap: 32px; }
+    .btn-secondary { margin-left: 0; margin-top: 12px; display: block; text-align: center; }
+  }
+
+  .solution-text p {
+    font-size: 17px;
+    line-height: 1.65;
+    color: rgba(250,250,248,0.75);
+    margin-bottom: 20px;
+    font-weight: 300;
+  }
+
+  .solution-text strong {
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  .pillars {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .pillar {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 24px;
+    border: 1px solid rgba(250,250,248,0.1);
+    background: rgba(250,250,248,0.03);
+    transition: border-color 0.3s, background 0.3s;
+  }
+  .pillar:hover { border-color: rgba(200,16,46,0.4); background: rgba(200,16,46,0.04); }
+
+  .pillar-icon {
+    font-size: 24px;
+    flex-shrink: 0;
+    width: 44px;
+    text-align: center;
+    margin-top: 2px;
+  }
+
+  .pillar-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 16px;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .pillar-desc {
+    font-size: 13px;
+    color: rgba(250,250,248,0.55);
+    line-height: 1.5;
+    font-weight: 300;
+  }
+
+  /* ── MÉCANIQUE ── */
+  .mechanic {
+    background: var(--navy-light);
+  }
+
+  .steps {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 2px;
+    margin-top: 56px;
+  }
+
+  .step {
+    background: var(--navy);
+    padding: 36px 28px;
+    position: relative;
+  }
+
+  .step-num {
+    font-family: 'Syne', sans-serif;
+    font-size: 56px;
+    font-weight: 800;
+    color: rgba(250,250,248,0.06);
+    line-height: 1;
+    margin-bottom: 16px;
+  }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 15px;
+    color: var(--gold);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 8px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: rgba(250,250,248,0.55);
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  /* ── PROPOSITION ── */
+  .proposition {
+    background: var(--red);
+  }
+
+  .proposition .section-label { color: rgba(250,250,248,0.6); }
+
+  .prop-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 640px) {
+    .prop-grid { grid-template-columns: 1fr; }
+  }
+
+  .prop-block {
+    border-top: 2px solid rgba(250,250,248,0.3);
+    padding-top: 24px;
+  }
+
+  .prop-block-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(250,250,248,0.7);
+    margin-bottom: 16px;
+  }
+
+  .prop-block ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .prop-block li {
+    font-size: 15px;
+    color: var(--white);
+    line-height: 1.45;
+    padding-left: 18px;
+    position: relative;
+    font-weight: 300;
+  }
+
+  .prop-block li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: rgba(250,250,248,0.5);
+    font-size: 13px;
+  }
+
+  /* ── PILOTE ── */
+  .pilot {
+    background: var(--navy);
+  }
+
+  .pilot-highlight {
+    background: rgba(232,201,106,0.07);
+    border: 1px solid rgba(232,201,106,0.2);
+    padding: 32px 36px;
+    margin-top: 48px;
+    text-align: center;
+  }
+
+  .pilot-highlight p {
+    font-family: 'Syne', sans-serif;
+    font-size: clamp(18px, 3vw, 26px);
+    font-weight: 700;
+    color: var(--gold);
+    line-height: 1.3;
+  }
+
+  .pilot-highlight p span {
+    color: rgba(250,250,248,0.5);
+    font-weight: 400;
+    font-size: 0.75em;
+    display: block;
+    margin-top: 10px;
+    font-family: 'DM Sans', sans-serif;
+  }
+
+  .conditions {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+    margin-top: 40px;
+  }
+
+  .condition {
+    padding: 24px;
+    background: rgba(250,250,248,0.03);
+    border-left: 2px solid var(--gold);
+  }
+
+  .condition-title {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .condition-text {
+    font-size: 14px;
+    color: rgba(250,250,248,0.65);
+    line-height: 1.55;
+    font-weight: 300;
+  }
+
+  /* ── CTA FINAL ── */
+  .cta-section {
+    background: var(--navy-light);
+    text-align: center;
+  }
+
+  .cta-section .section-title {
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .cta-section p {
+    font-size: 16px;
+    color: rgba(250,250,248,0.6);
+    max-width: 480px;
+    margin: 20px auto 0;
+    line-height: 1.6;
+    font-weight: 300;
+  }
+
+  .cta-buttons {
+    margin-top: 44px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy);
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(250,250,248,0.07);
+  }
+
+  footer p {
+    font-size: 12px;
+    color: rgba(250,250,248,0.3);
+    letter-spacing: 0.05em;
+  }
+
+  footer p span {
+    color: var(--red);
+  }
+
+  /* ── ANIMATIONS ── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>
 </head>
 <body>
- 
-  <!-- TOPBAR -->
-  <div class="topbar">
-    <img src="/logo.png" alt="CROISSENS" class="topbar-logo">
-  </div>
- 
-  <!-- HERO -->
-  <div class="hero">
-    <div class="hero-title-white">L'acquisition via le paid media ne paye plus.</div>
-    <div class="hero-title-red">Une croissance rentable &amp; durable<br>sans dépendre des algorithmes, est possible !</div>
-    <p class="hero-sub">#CROISSENS transforme votre reach organique en base clients commune et votre communauté en actif financier — sans investir un euro en publicité.</p>
-    <a href="mailto:antoine.ballif@gmail.com?subject=CROISSENS%20—%20je%20veux%20rejoindre%20la%20coalition" class="hero-cta">Rejoindre la coalition →</a>
-  </div>
- 
-  <!-- STATS -->
-  <div class="stats">
-    <div class="stat"><span class="stat-num">77%</span><span class="stat-label">des DNVB dépendantes<br>du paid media</span></div>
-    <div class="stat"><span class="stat-num">+25%</span><span class="stat-label">hausse du CAC<br>en 1 an</span></div>
-    <div class="stat"><span class="stat-num">30%</span><span class="stat-label">du CA investi en<br>marketing digital</span></div>
-    <div class="stat"><span class="stat-num">196 Md€</span><span class="stat-label">marché e-commerce<br>France 2025</span></div>
-  </div>
- 
-  <!-- PROBLÈME -->
-  <div class="section">
-    <div class="section-label">Le problème</div>
-    <div class="section-title">Votre croissance incrémentale se traduit<br>par une pression accrue sur la marge.</div>
-    <div class="problem-list">
-      <div class="problem-item">
-        <div class="problem-num">01</div>
-        <div class="problem-content"><strong>Dépendance algorithmique</strong><span>Votre visibilité est dictée par des plateformes tierces dont les règles changent sans vous prévenir.</span></div>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="tricolor"></div>
+  <h1 class="hero-title">#CROIS<span>SENS</span></h1>
+  <p class="hero-tagline">La coalition économique à impact made in France.</p>
+</section>
+
+<!-- ═══ PROBLÈME ═══ -->
+<section class="problem">
+  <div class="container">
+    <p class="section-label reveal">Le contexte</p>
+    <h2 class="section-title reveal">L'acquisition paid coûte de plus en plus cher.<br>La fidélisation, elle, reste sous-exploitée.</h2>
+    <div class="stats-row">
+      <div class="stat-block reveal">
+        <div class="stat-number">+25%</div>
+        <div class="stat-desc">Hausse du coût d'acquisition en un an</div>
+        <div class="stat-source">Baromètre DNVB 2023</div>
       </div>
-      <div class="problem-item">
-        <div class="problem-num">02</div>
-        <div class="problem-content"><strong>Inflation structurelle</strong><span>L'augmentation des investissements publicitaires accroît mécaniquement les coûts. Le CAC a doublé en 4 ans.</span></div>
+      <div class="stat-block reveal">
+        <div class="stat-number">77%</div>
+        <div class="stat-desc">Des DNVB dépendent majoritairement des canaux payants</div>
+        <div class="stat-source">Baromètre DNVB 2023</div>
       </div>
-      <div class="problem-item">
-        <div class="problem-num">03</div>
-        <div class="problem-content"><strong>Rendement décroissant</strong><span>Maintenir le même niveau de croissance exige un investissement toujours plus élevé.</span></div>
+      <div class="stat-block reveal">
+        <div class="stat-number">83%</div>
+        <div class="stat-desc">Des membres d'un programme de fidélité rachètent plus souvent</div>
+        <div class="stat-source">PayPal – Think Forward 2022</div>
       </div>
-      <div class="problem-item">
-        <div class="problem-num">04</div>
-        <div class="problem-content"><strong>Communauté sous-exploitée</strong><span>Votre reach organique génère de la notoriété — mais pas de revenus directs. #CROISSENS change ça.</span></div>
+      <div class="stat-block reveal">
+        <div class="stat-number">65%</div>
+        <div class="stat-desc">De l'activité d'une entreprise est générée par sa base clients existante</div>
+        <div class="stat-source">Institute for Operational Excellence</div>
       </div>
     </div>
   </div>
- 
-  <!-- SOLUTION BOX -->
-  <div class="solution-box">
-    <div class="solution-box-label">La solution</div>
-    <div class="solution-box-title">Passer d'une stratégie<br>d'acquisition paid individualisée<br>à une fidélisation mutualisée.</div>
-  </div>
- 
-  <!-- COMMENT -->
-  <div class="comment-box">
-    <div class="comment-label">Comment ?</div>
-    <div class="comment-title">Le reach organique cumulé des DNVB françaises<br>s'élève à 25 millions d'abonnés<br>= création d'une base clients commune ex nihilo<br>conforme aux normes RGPD, sans investir 1€ en publicité.</div>
-  </div>
- 
-  <div class="divider"></div>
- 
-  <!-- OFFER -->
-  <div class="offer-section">
-    <div class="offer-phone">
-      <img src="/wallet.png" alt="Carte wallet CROISSENS">
-    </div>
-    <div class="offer-content">
-      <div class="offer-title-label">1er programme de fidélité multi-marques</div>
-      <div class="offer-title">À allier pouvoir d'achat<br>&amp; pouvoir d'agir.</div>
-      <ul class="offer-list">
-        <li>9% de remise permanente sur toutes les marques partenaires</li>
-        <li>1% reversé à une ONG au choix du client</li>
-        <li>Carte Wallet (Apple / Google) — opt-in 1 clic, zéro pub</li>
-        <li>Marques françaises engagées — local, social, durable</li>
-        <li>84% des 18-49 ans jugent le wallet mobile utile</li>
-      </ul>
-    </div>
-  </div>
- 
-  <!-- RETRO -->
-  <div class="retro-section">
-    <div class="retro-label">Votre communauté devient un actif financier</div>
-    <p class="retro-text"><strong>Marque A</strong> embase le client X → X achète chez <strong>Marque B</strong> → B reverse à A <strong>1% du premier achat de X.</strong> Pour la première fois, votre reach organique génère un revenu direct — pas seulement de la notoriété.</p>
-  </div>
- 
-  <div style="margin-bottom:3rem"></div>
-  <div class="divider"></div>
- 
-  <!-- GO TO MARKET -->
-  <div class="gtm-section">
-    <div class="gtm-label">Go to market</div>
-    <div class="gtm-grid">
-      <div class="gtm-item"><span class="gtm-num">1</span><span class="gtm-title">Activation organique simultanée</span><span class="gtm-desc">Posts + newsletters coordonnés par toutes les marques</span></div>
-      <div class="gtm-item"><span class="gtm-num">2</span><span class="gtm-title">Landing page coalition</span><span class="gtm-desc">Opt-in explicite (RGPD), ajout Wallet en 1 clic</span></div>
-      <div class="gtm-item"><span class="gtm-num">3</span><span class="gtm-title">Wallet ID &amp; mesure transac.</span><span class="gtm-desc">Attribution exacte par marque + Dashboard partagé</span></div>
-      <div class="gtm-item"><span class="gtm-num">4</span><span class="gtm-title">Go / No-Go à M+6 sur données</span><span class="gtm-desc">CMR ≤ CAC + marge nette incrémentale &gt; 0</span></div>
+</section>
+
+<!-- ═══ SOLUTION ═══ -->
+<section class="solution">
+  <div class="container">
+    <p class="section-label reveal">La réponse</p>
+    <h2 class="section-title reveal">De l'acquisition paid individualisée<br>à la fidélisation mutualisée.</h2>
+    <div class="solution-grid">
+      <div class="solution-text reveal">
+        <p>#CROISSENS est un <strong>programme de fidélité commun à plusieurs marques françaises</strong> qui transforme vos communautés organiques en base clients opt-in partagée.</p>
+        <p>Chaque marque apporte ses abonnés. Ensemble, vous créez un <strong>levier de réachat et de cross-buy</strong> sans dépendre des algorithmes.</p>
+        <p>Un seul outil. Une règle simple. Un dashboard commun.</p>
+      </div>
+      <div class="pillars reveal">
+        <div class="pillar">
+          <div class="pillar-icon">💳</div>
+          <div>
+            <div class="pillar-title">9% de remise permanente</div>
+            <div class="pillar-desc">Sur toutes les marques partenaires — fidélisation, pas promotion.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🌱</div>
+          <div>
+            <div class="pillar-title">1% reversé à une ONG</div>
+            <div class="pillar-desc">Au choix du client — consommation qui a du sens.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">📲</div>
+          <div>
+            <div class="pillar-title">Wallet Mobile</div>
+            <div class="pillar-desc">Achats online et in store — Apple Wallet & Google Wallet, sans friction.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="pillar-icon">🇫🇷</div>
+          <div>
+            <div class="pillar-title">Made in France</div>
+            <div class="pillar-desc">Un standard commun, mémorisable, fidèle aux valeurs d'une marque française engagée.</div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
- 
-  <!-- KPI BAR -->
-  <div class="kpi-bar">
-    <span class="kpi-bar-label">Projections financières</span>
-    <div class="kpi-bar-sep"></div>
-    <span class="kpi-bar-item">ROI 3,98x</span>
-    <div class="kpi-bar-sep"></div>
-    <span class="kpi-bar-item">CMR 15,7€</span>
-    <div class="kpi-bar-sep"></div>
-    <span class="kpi-bar-item">vs CAC moyen 40€</span>
+</section>
+
+<!-- ═══ MÉCANIQUE ═══ -->
+<section class="mechanic" id="mechanic">
+  <div class="container">
+    <p class="section-label reveal">Comment ça marche</p>
+    <h2 class="section-title reveal">Un seul post. Une landing. Une carte wallet.</h2>
+    <div class="steps">
+      <div class="step reveal">
+        <div class="step-num">01</div>
+        <div class="step-title">Post coordonné</div>
+        <div class="step-desc">Toutes les marques publient simultanément sur leurs réseaux. Reach organique mutualisé.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">02</div>
+        <div class="step-title">Landing unique</div>
+        <div class="step-desc">Une page commune. 9% de remise. 1% ONG. L'offre est claire, immédiate.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">03</div>
+        <div class="step-title">Wallet 1 clic</div>
+        <div class="step-desc">Opt-in explicite RGPD. Pas d'email requis. Apple Wallet ou Google Wallet, sans friction.</div>
+      </div>
+      <div class="step reveal">
+        <div class="step-num">04</div>
+        <div class="step-title">Base activée</div>
+        <div class="step-desc">Chaque transaction est mesurée via Wallet ID. Dashboard partagé. Attribution propre.</div>
+      </div>
+    </div>
   </div>
- 
-  <!-- NO CURE NO PAY -->
-  <div class="nocure-box">
-    <div class="nocure-title">Modèle 100% aligné — No Cure, No Pay</div>
-    <p class="nocure-text">Pendant le pilote : vous ne payez que les coûts techniques et la générosité client. <strong>La commission #CROISSENS (1%) n'est activée qu'après validation des KPIs à M+6.</strong> Aucun verrou technologique. Sortie possible à tout moment.</p>
+</section>
+
+<!-- ═══ PROPOSITION ═══ -->
+<section class="proposition" id="proposition">
+  <div class="container">
+    <p class="section-label reveal">La proposition</p>
+    <h2 class="section-title reveal">No cure, no pay.<br>Vous ne payez que si ça crée de la valeur.</h2>
+    <div class="prop-grid">
+      <div class="prop-block reveal">
+        <div class="prop-block-title">Pendant le pilote (6 mois)</div>
+        <ul>
+          <li>Zéro frais #CROISSENS</li>
+          <li>Coûts techniques mutualisés entre marques fondatrices</li>
+          <li>Paid maintenu à budget constant (mesure incrémentale)</li>
+          <li>Dashboard partagé en temps réel</li>
+        </ul>
+      </div>
+      <div class="prop-block reveal">
+        <div class="prop-block-title">Après validation Go/No-Go</div>
+        <ul>
+          <li>Commission de 1% sur l'incrémental mesuré uniquement</li>
+          <li>Calcul transparent via Wallet ID + cohortes</li>
+          <li>Sortie possible à tout moment (pilote réversible)</li>
+          <li>Ouverture à d'autres DNVB avec entry fee</li>
+        </ul>
+      </div>
+    </div>
   </div>
- 
-  <!-- CTA -->
-  <div class="cta-section">
-    <div class="cta-title">Ensemble, donnons encore davantage<br>de sens à votre croissance.</div>
-    <span class="cta-action">Rejoignez la coalition</span>
-    <p class="cta-contact"><a href="mailto:antoine.ballif@gmail.com">antoine.ballif@gmail.com</a> — 06 83 84 14 39</p>
-    <a href="mailto:antoine.ballif@gmail.com?subject=CROISSENS%20—%20je%20veux%20rejoindre%20la%20coalition" class="cta-btn">Rejoindre la coalition →</a>
+</section>
+
+<!-- ═══ PILOTE ═══ -->
+<section class="pilot">
+  <div class="container">
+    <p class="section-label reveal">Le pilote</p>
+    <h2 class="section-title reveal">Mise en ligne J+30.<br>Décision Go/No-Go à M+6 sur données.</h2>
+    <div class="pilot-highlight reveal">
+      <p>CMR ≤ CAC actuel + marge nette incrémentale positive.<br>
+      <span>C'est le seul critère qui compte. Tout le reste est au service de cette preuve.</span>
+      </p>
+    </div>
+    <div class="conditions">
+      <div class="condition reveal">
+        <div class="condition-title">Ce qu'on vous demande</div>
+        <div class="condition-text">Valider la règle 9%+1%. Nommer 2 contacts (marketing + ops/tech). Partager 5 chiffres confidentiels : CAC, AOV, marge brute, fréquence, réachat (90j).</div>
+      </div>
+      <div class="condition reveal">
+        <div class="condition-title">Risque</div>
+        <div class="condition-text">Maîtrisé. Pilote réversible. Paid maintenu. Aucun verrou technologique. Sortie possible à tout moment.</div>
+      </div>
+      <div class="condition reveal">
+        <div class="condition-title">Ce que vous gagnez</div>
+        <div class="condition-text">Une base opt-in qualifiée. Un levier de réachat et de cross-buy. Une marge nette incrémentale mesurable et attribuable.</div>
+      </div>
+    </div>
   </div>
- 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-txt">© 2026 CROISSENS · Document confidentiel</div>
-    <div class="footer-txt">Station F</div>
-  </footer>
- 
+</section>
+
+<!-- ═══ CTA FINAL ═══ -->
+<section class="cta-section">
+  <div class="container">
+    <h2 class="section-title reveal">Ensemble, donnons davantage<br>de sens à votre croissance.</h2>
+    <p class="reveal">Un pilote de 6 mois. Une décision sur données. Une coalition de marques qui partagent les mêmes valeurs.</p>
+    <div class="cta-buttons reveal">
+      <a href="mailto:antoine@croissens.fr" class="btn-primary">Rejoindre le pilote →</a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  <p>#CROISSENS — Document confidentiel — Projet de co-fondation<br>
+  Conçu avec <span>♥</span> pour les marques françaises qui croient encore aux idées.</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  reveals.forEach(el => observer.observe(el));
+</script>
 </body>
 </html>
- 
